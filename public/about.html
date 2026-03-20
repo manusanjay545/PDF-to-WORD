@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us – PDF to WORD Converter</title>
+    <meta name="description"
+        content="Learn about PDF to WORD, the free online tool for converting PDF files to editable Word documents.">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+</head>
+
+<body>
+    <header class="site-header" id="siteHeader">
+        <div class="container header-inner">
+            <a href="/" class="logo" aria-label="PDF to WORD home">
+                <div class="logo-icon">PDF</div>
+                PDF to <span>WORD</span>
+            </a>
+            <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+                <a href="/">Home</a>
+                <a href="/pdf-to-word">All Tools</a>
+                <a href="/pdf-to-word">Compress PDF</a>
+                <a href="/pdf-to-word">JPG to PDF</a>
+                <a href="/contact">Contact</a>
+            </nav>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <div class="nav-overlay" id="navOverlay"></div>
+    </header>
+
+    <main class="page-content">
+        <h1>About Us</h1>
+        <p>Welcome to <strong>PDF to WORD</strong> – your go-to online tool for converting PDF files into editable Word
+            documents quickly and easily.</p>
+
+        <h2>Our Mission</h2>
+        <p>We believe that document conversion should be simple, fast, and free. Our mission is to provide a reliable,
+            secure, and user-friendly platform that helps millions of people around the world convert their PDF files
+            effortlessly.</p>
+
+        <h2>What We Offer</h2>
+        <ul>
+            <li><strong>Fast Conversion</strong> – Our optimized processing engine converts your files in seconds.</li>
+            <li><strong>Security First</strong> – All uploaded files are automatically deleted after processing. Your
+                privacy is our top priority.</li>
+            <li><strong>No Sign-Up Required</strong> – Use our tool without creating an account. Just upload, convert,
+                and download.</li>
+            <li><strong>Batch Processing</strong> – Convert multiple PDF files at once to save time.</li>
+            <li><strong>Cross-Platform</strong> – Works on any device with a web browser – desktop, tablet, or mobile.
+            </li>
+        </ul>
+
+        <h2>Our Technology</h2>
+        <p>We use advanced document processing technology to ensure high-quality conversions that preserve the layout,
+            formatting, and content of your original PDF files as accurately as possible.</p>
+
+        <h2>Get In Touch</h2>
+        <p>Have questions or feedback? We'd love to hear from you. Visit our <a href="/contact">Contact page</a> to
+            reach out.</p>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo" style="color:#fff">
+                        <div class="logo-icon">PDF</div>
+                        PDF to <span>WORD</span>
+                    </div>
+                    <p>The fastest and most secure way to convert your PDF files to editable Word documents online.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Tools</h4>
+                    <ul>
+                        <li><a href="/pdf-to-word">PDF to Word</a></li>
+                        <li><a href="/pdf-to-word">Compress PDF</a></li>
+                        <li><a href="/pdf-to-word">JPG to PDF</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="/terms">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">&copy; 2026 PDF to WORD. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile nav toggle for extra pages
+        const hamburger = document.getElementById('hamburger');
+        const mainNav = document.getElementById('mainNav');
+        const navOverlay = document.getElementById('navOverlay');
+        hamburger.addEventListener('click', () => {
+            mainNav.classList.toggle('open');
+            hamburger.classList.toggle('active');
+            navOverlay.classList.toggle('visible');
+        });
+        navOverlay.addEventListener('click', () => {
+            mainNav.classList.remove('open');
+            hamburger.classList.remove('active');
+            navOverlay.classList.remove('visible');
+        });
+    </script>
+</body>
+
+</html>

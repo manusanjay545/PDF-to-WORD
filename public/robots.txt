@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /uploads/
+Disallow: /converted/
+
+Sitemap: https://pdftoword.com/sitemap.xml
