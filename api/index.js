@@ -341,13 +341,22 @@ app.post('/api/download-zip', async (req, res) => {
 // ---------------------------------------------------------------------------
 // Start server or export for Vercel
 // ---------------------------------------------------------------------------
-detectLibreOffice().then(() => {
-  if (process.env.NODE_ENV !== 'production' && !process.env.VERCEL) {
-    app.listen(PORT, () => {
-      console.log(`\n🚀 PDF to WORD server running at http://localhost:${PORT}`);
-      console.log(`   Conversion engine: ${libreOfficeAvailable ? 'LibreOffice' : 'Fallback (text extraction)'}\n`);
-    });
-  }
-});
+if (!process.env.VERCEL) {
+  detectLibreOffice().then(() => {
+    if (process.env.NODE_ENV !== 'production') {
+      app.listen(PORT, () => {
+        console.log(`\n🚀 PDF to WORD server running at http://localhost:${PORT}`);
+        console.log(`   Conversion engine: ${libreOfficeAvailable ? 'LibreOffice' : 'Fallback (text extraction)'}\n`);
+      });
+    }
+  });
+}
 
 module.exports = app;
+
+// Ensure Vercel passes raw stream to Multer for file uploads
+module.exports.config = {
+  api: {
+    bodyParser: false,
+  },
+};
