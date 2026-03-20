@@ -5,6 +5,7 @@ const helmet = require('helmet');
 const { v4: uuidv4 } = require('uuid');
 const path = require('path');
 const fs = require('fs');
+const os = require('os');
 const { exec } = require('child_process');
 
 const app = express();
@@ -13,8 +14,8 @@ const PORT = process.env.PORT || 3000;
 // ---------------------------------------------------------------------------
 // Directories
 // ---------------------------------------------------------------------------
-const UPLOAD_DIR = path.join(__dirname, 'uploads');
-const CONVERTED_DIR = path.join(__dirname, 'converted');
+const UPLOAD_DIR = path.join(os.tmpdir(), 'uploads');
+const CONVERTED_DIR = path.join(os.tmpdir(), 'converted');
 [UPLOAD_DIR, CONVERTED_DIR].forEach((d) => {
   if (!fs.existsSync(d)) fs.mkdirSync(d, { recursive: true });
 });
@@ -338,11 +339,15 @@ app.post('/api/download-zip', async (req, res) => {
 });
 
 // ---------------------------------------------------------------------------
-// Start server
+// Start server or export for Vercel
 // ---------------------------------------------------------------------------
 detectLibreOffice().then(() => {
-  app.listen(PORT, () => {
-    console.log(`\n🚀 PDF to WORD server running at http://localhost:${PORT}`);
-    console.log(`   Conversion engine: ${libreOfficeAvailable ? 'LibreOffice' : 'Fallback (text extraction)'}\n`);
-  });
+  if (process.env.NODE_ENV !== 'production' && !process.env.VERCEL) {
+    app.listen(PORT, () => {
+      console.log(`\n🚀 PDF to WORD server running at http://localhost:${PORT}`);
+      console.log(`   Conversion engine: ${libreOfficeAvailable ? 'LibreOffice' : 'Fallback (text extraction)'}\n`);
+    });
+  }
 });
+
+module.exports = app;
