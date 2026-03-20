@@ -2,10 +2,10 @@
   "name": "pdf-to-word",
   "version": "1.0.0",
   "description": "PDF to Word Converter - Free Online PDF to DOCX Tool",
-  "main": "server.js",
+  "main": "api/index.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "npx nodemon server.js"
+    "start": "node api/index.js",
+    "dev": "npx nodemon api/index.js"
   },
   "keywords": [
     "pdf",

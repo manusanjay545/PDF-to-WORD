@@ -34,7 +34,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Static files
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '../public')));
 
 // ---------------------------------------------------------------------------
 // Clean URL routing
@@ -48,7 +48,7 @@ const pages = {
 };
 Object.entries(pages).forEach(([route, file]) => {
   app.get(route, (_req, res) => {
-    res.sendFile(path.join(__dirname, 'public', file));
+    res.sendFile(path.join(__dirname, '../public', file));
   });
 });
 
