@@ -260,8 +260,16 @@
             progressPercent.textContent = '100%';
 
             if (!uploadRes.ok) {
-                const err = await uploadRes.json();
-                throw new Error(err.error || 'Upload failed');
+                let errMsg = 'Upload failed';
+                try {
+                    const err = await uploadRes.json();
+                    errMsg = err.error || errMsg;
+                } catch (e) {
+                    const text = await uploadRes.text();
+                    console.error("Non-JSON API response:", text.substring(0, 100));
+                    errMsg = 'Server returned an invalid response. API might be offline.';
+                }
+                throw new Error(errMsg);
             }
 
             const uploadData = await uploadRes.json();
@@ -287,8 +295,16 @@
                 clearInterval(convertInterval);
 
                 if (!convertRes.ok) {
-                    const err = await convertRes.json();
-                    throw new Error(err.error || 'Conversion failed');
+                    let errMsg = 'Conversion failed';
+                    try {
+                        const err = await convertRes.json();
+                        errMsg = err.error || errMsg;
+                    } catch (e) {
+                        const text = await convertRes.text();
+                        console.error("Non-JSON API response:", text.substring(0, 100));
+                        errMsg = 'Server returned an invalid response. API might be offline.';
+                    }
+                    throw new Error(errMsg);
                 }
 
                 const convertData = await convertRes.json();
@@ -304,8 +320,16 @@
                 clearInterval(convertInterval);
 
                 if (!convertRes.ok) {
-                    const err = await convertRes.json();
-                    throw new Error(err.error || 'Conversion failed');
+                    let errMsg = 'Conversion failed';
+                    try {
+                        const err = await convertRes.json();
+                        errMsg = err.error || errMsg;
+                    } catch (e) {
+                        const text = await convertRes.text();
+                        console.error("Non-JSON API response:", text.substring(0, 100));
+                        errMsg = 'Server returned an invalid response. API might be offline.';
+                    }
+                    throw new Error(errMsg);
                 }
 
                 const convertData = await convertRes.json();
