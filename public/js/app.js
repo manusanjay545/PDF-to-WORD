@@ -261,11 +261,11 @@
 
             if (!uploadRes.ok) {
                 let errMsg = 'Upload failed';
+                const text = await uploadRes.text();
                 try {
-                    const err = await uploadRes.json();
+                    const err = JSON.parse(text);
                     errMsg = err.error || errMsg;
                 } catch (e) {
-                    const text = await uploadRes.text();
                     console.error("Non-JSON API response:", text.substring(0, 100));
                     errMsg = 'Server returned an invalid response. API might be offline.';
                 }
@@ -296,11 +296,11 @@
 
                 if (!convertRes.ok) {
                     let errMsg = 'Conversion failed';
+                    const text = await convertRes.text();
                     try {
-                        const err = await convertRes.json();
+                        const err = JSON.parse(text);
                         errMsg = err.error || errMsg;
                     } catch (e) {
-                        const text = await convertRes.text();
                         console.error("Non-JSON API response:", text.substring(0, 100));
                         errMsg = 'Server returned an invalid response. API might be offline.';
                     }
@@ -321,11 +321,11 @@
 
                 if (!convertRes.ok) {
                     let errMsg = 'Conversion failed';
+                    const text = await convertRes.text();
                     try {
-                        const err = await convertRes.json();
+                        const err = JSON.parse(text);
                         errMsg = err.error || errMsg;
                     } catch (e) {
-                        const text = await convertRes.text();
                         console.error("Non-JSON API response:", text.substring(0, 100));
                         errMsg = 'Server returned an invalid response. API might be offline.';
                     }
