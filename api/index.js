@@ -353,10 +353,3 @@ if (!process.env.VERCEL) {
 }
 
 module.exports = app;
-
-// Ensure Vercel passes raw stream to Multer for file uploads
-module.exports.config = {
-  api: {
-    bodyParser: false,
-  },
-};
